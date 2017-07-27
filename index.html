@@ -1,48 +1,53 @@
-﻿<!DOCTYPE html>
-<html lang="zh" class="no-js demo-1">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-		<script src="js/jquery.min.js"></script>
-		<script src="js/Helper.js"></script>
-		<script src="js/keyboard.js"></script>
-		<script src="js/const.js"></script>
-		<script src="js/level.js"></script>
-		<script src="js/crackAnimation.js"></script>
-		<script src="js/prop.js"></script>
-		<script src="js/bullet.js"></script>
-		<script src="js/tank.js"></script>
-		<script src="js/num.js"></script>
-		<script src="js/menu.js"></script>
-		<script src="js/map.js"></script>
-		<script src="js/Collision.js"></script>
-		<script src="js/stage.js"></script>
-		<script src="js/main.js"></script>
-		<link rel="stylesheet" type="text/css" href="css/default.css" />
-		<style type="text/css">
-			#canvasDiv canvas{
-				position:absolute;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="container">
-			<head><h3>操作说明：玩家1：wasd上左下右，space射击；玩家2：方向键，enter射击。n下一关，p上一关。</h3></head>
-			<div class="main clearfix">
-				<div id="canvasDiv" >
-					<canvas id="wallCanvas" ></canvas> 
-					<canvas id="tankCanvas" ></canvas>
-					<canvas id="grassCanvas" ></canvas>
-					<canvas id="overCanvas" ></canvas> 
-					<canvas id="stageCanvas" ></canvas>
-				</div>
-			</div>
-			
-		</div><!-- /container -->
-		<div style="text-align:center;">
-<p>来源:<a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
-</div>
+﻿<!doctype html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link rel="apple-touch-icon" href="images/icon.png"/>
+<link rel="apple-touch-startup-image" href="images/icon.png" />
 
-	</body>
+<style type="text/css">
+body, div, canvas
+{
+    image-rendering: optimizeSpeed;
+    -webkit-image-rendering: optimizeSpeed;
+    -webkit-interpolation-mode: nearest-neighbor;
+}
+body{padding:0; margin:0;font-size:12px;background-color:#000;}
+body, html{height: 100%;}
+#outer{height:100%; overflow:hidden; position:relative; width:100%;}
+#outer[id]{display:table; position:static;}
+#middle{position:absolute; top:50%;} /* for ie only*/
+#middle[id]{display:table-cell; vertical-align:middle; position:static;}
+.djl{font-size:24px;color:red;}
+.djl a{font-size:24px;color:red;}
+</style>
+
+<title>大家乐捕鱼游戏</title>
+
+<script type="text/javascript" src="js/quark.base-1.0.0.alpha.min.js"></script>
+<!--<script type="text/javascript" src="fishjoy.game.js"></script>-->
+<script type="text/javascript" src="src/R.js"></script>
+<script type="text/javascript" src="src/Utils.js"></script>
+<script type="text/javascript" src="src/fishjoy.js"></script>
+<script type="text/javascript" src="src/FishManager.js"></script>
+<script type="text/javascript" src="src/FishGroup.js"></script>
+<script type="text/javascript" src="src/views/Fish.js"></script>
+<script type="text/javascript" src="src/views/Cannon.js"></script>
+<script type="text/javascript" src="src/views/Bullet.js"></script>
+<script type="text/javascript" src="src/views/Num.js"></script>
+<script type="text/javascript" src="src/views/Player.js"></script>
+
+</head>
+
+<body>
+
+<div id="outer">
+	<div id="middle">
+		<div id="container" style="position:relative;width:980px;height:545px;top:-50%;margin:0 auto;"></div>
+		<div id="msg"></div>
+	</div>
+</div>
+<div id="fps" style="position:absolute;top:0;left:0;color:#fff;"></div>
+</body>
 </html>
