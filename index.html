@@ -35,6 +35,36 @@
             width: 100%;
         }
     }
+
+
+    </style>
+
+
+    <style type="text/css">
+
+        input{
+            width: 300px;
+            margin: 10px;
+        }
+
+        button{
+            width: 50px;
+            height: 30px;
+        }
+
+        .sexf,.sexm{
+          width: 100px;
+          margin: 10px;
+        }
+
+      .resume ,.expectation{
+
+          width: 500px;
+          height: 100px;
+      }
+        .repertory{
+            width: 1025px;
+        }
     </style>
 
 </head>
@@ -43,59 +73,57 @@
 
     <!-- Navigation -->
     <nav id="mainNav" class="navbar fixed-top navbar-toggleable-md navbar-light">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <!--<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation">-->
+            <!--<span class="navbar-toggler-icon"></span>-->
+        <!--</button>-->
         <div class="container">
-            <a class="navbar-brand page-scroll" href="#page-top">Start Bootstrap</a>
+            <a class="navbar-brand page-scroll" href="#page-top">500 工作室</a>
             <div class="collapse navbar-collapse" id="navbarExample">
                 <ul class="navbar-nav ml-auto">
+                    <!--<li class="nav-item">-->
+                        <!--<a class="nav-link page-scroll" href="#about">关于我们</a>-->
+                    <!--</li>-->
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#about">About</a>
+                        <a class="nav-link page-scroll" href="#services" style="position: absolute;left: 180px;top:-5px;font-size: 1.25rem;">设备展示</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#services">Services</a>
+                        <a class="nav-link page-scroll" href="#portfolio" style="position: absolute;left: 380px;top:-5px;font-size: 1.25rem;">人员介绍</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#portfolio">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#contact">Contact</a>
+                        <a class="nav-link page-scroll" href="#contact" style="position: absolute;left: 580px;top:-5px;font-size: 1.25rem;">联系我们</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-
     <header>
-        <div class="header-content">
+        <div class="header-content" id="about">
             <div class="header-content-inner">
-                <h1 id="homeHeading">Your Favorite Source of Free Bootstrap Themes</h1>
+                <h1 id="homeHeading" style="line-height: 70px;letter-spacing: 3px;">你是否觉得单调枯燥的大学生活不能满足你的远大抱负？</h1>
                 <hr>
-                <p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
-                <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+                <a href="#services" class="btn btn-primary btn-xl page-scroll" style="letter-spacing: 2px">了解更多</a>
             </div>
         </div>
     </header>
 
-    <section class="bg-primary" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2 text-center">
-                    <h2 class="section-heading text-white">We've got what you need!</h2>
-                    <hr class="light">
-                    <p class="text-faded">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
-                    <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">Get Started!</a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!--<section class="bg-primary" >-->
+        <!--<div class="container">-->
+            <!--<div class="row">-->
+                <!--<div class="col-lg-8 offset-lg-2 text-center">-->
+                    <!--<h2 class="section-heading text-white">You are the one we are looking for!</h2>-->
+                    <!--<hr class="light">-->
+                    <!--<p class="text-faded">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>-->
+                    <!--<a href="#services" class="page-scroll btn btn-default btn-xl sr-button">Get Started!</a>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</section>-->
 
     <section id="services">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">At Your Service</h2>
+                    <h2 class="section-heading">我们的设备</h2>
                     <hr class="primary">
                 </div>
             </div>
@@ -105,29 +133,29 @@
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
-                        <h3>Sturdy Templates</h3>
-                        <p class="text-muted">Our templates are updated regularly so they don't break.</p>
+                        <h3>这是一台服务器</h3>
+                        <p class="text-muted">这是一台价值四万块的服务器！！</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
-                        <h3>Ready to Ship</h3>
-                        <p class="text-muted">You can use this theme as is, or you can make changes!</p>
+                       <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
+                        <h3>这是一个投影仪。</h3>
+                        <p class="text-muted">这是一台价值八千块的投影仪!!</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <i class="fa fa-4x fa-newspaper-o text-primary sr-icons"></i>
-                        <h3>Up to Date</h3>
-                        <p class="text-muted">We update dependencies to keep things fresh.</p>
+                        <h3>这是两个显示屏。</h3>
+                        <p class="text-muted">一个是咱们的，一个是导员的!!</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
-                        <h3>Made with Love</h3>
-                        <p class="text-muted">You have to make your websites with love these days!</p>
+                        <h3>这是五把梳子。</h3>
+                        <p class="text-muted">这里是五把还没有磨出来的梳子!!</p>
                     </div>
                 </div>
             </div>
@@ -137,17 +165,20 @@
 
     <section class="no-padding" id="portfolio">
         <div class="container-fluid">
+            <h1 style="text-align: center">成员介绍</h1>
+            <hr>
             <div class="row no-gutter popup-gallery">
                 <div class="col-lg-4 col-sm-6">
+
                     <a href="img/portfolio/fullsize/1.jpg" class="portfolio-box">
                         <img src="img/portfolio/thumbnails/1.jpg" class="img-fluid" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
+                                    大佬
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                                    后端、全局掌控者
                                 </div>
                             </div>
                         </div>
@@ -159,10 +190,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
+                                    闫总
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                                    后台数据管理人员
                                 </div>
                             </div>
                         </div>
@@ -174,10 +205,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
+                                    于
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                                    文案策划人员
                                 </div>
                             </div>
                         </div>
@@ -189,10 +220,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
+                                    东
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                                    前端工程师
                                 </div>
                             </div>
                         </div>
@@ -204,10 +235,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
+                                    蒋
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                                   前端开发人员
                                 </div>
                             </div>
                         </div>
@@ -219,10 +250,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
+                                    其他。。。
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                                    其他成员小伙伴
                                 </div>
                             </div>
                         </div>
@@ -232,31 +263,59 @@
         </div>
     </section>
 
-    <aside class="bg-dark">
-        <div class="container text-center">
-            <div class="call-to-action">
-                <h2>Free Download at Start Bootstrap!</h2>
-                <a href="#" class="btn btn-default btn-xl sr-button">Download Now!</a>
-            </div>
-        </div>
-    </aside>
+    <!--<aside class="bg-dark">-->
+        <!--<div class="container text-center">-->
+            <!--<div class="call-to-action">-->
+                <!--<h2>Free Download at Start Bootstrap!</h2>-->
+                <!--<a href="#" class="btn btn-default btn-xl sr-button">Download Now!</a>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</aside>-->
 
     <section id="contact">
         <div class="container">
             <div class="row">
+
+
+
                 <div class="col-lg-8 offset-lg-2 text-center">
-                    <h2 class="section-heading">Let's Get In Touch!</h2>
+                    <h2 class="section-heading">联系我们</h2>
                     <hr class="primary">
-                    <p>Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
                 </div>
-                <div class="col-lg-4 offset-lg-2 text-center">
-                    <i class="fa fa-phone fa-3x sr-contact"></i>
-                    <p>123-456-6789</p>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <i class="fa fa-envelope-o fa-3x sr-contact"></i>
-                    <p><a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a></p>
-                    More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+
+
+                    <!--<p>Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>-->
+
+                <!--<div class="col-lg-4 offset-lg-2 text-center">-->
+                    <!--<i class="fa fa-phone fa-3x sr-contact"></i>-->
+                    <!--<p>123-456-6789</p>-->
+                <!--</div>-->
+                <!--<div class="col-lg-4 text-center">-->
+                    <!--<i class="fa fa-envelope-o fa-3x sr-contact"></i>-->
+                    <!--<p><a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a></p>-->
+                    <!--More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>-->
+                <!--</div>-->
+
+
+                <div>
+                    <form action="" method="" id="form">
+                        <input type="text" name="username" class="username" placeholder="姓名">
+                        <input type="text" name="school_number" class="school_number" placeholder="学号">
+                        <input type="radio" name="sex" value="male" class="sexm"> 男
+                        <input type="radio" name="sex" value="female" class="sexf"> 女
+                        <input type="tel" name="tel" class="tel" placeholder="联系电话">
+                        <input type="text" name="qq" class="qq" placeholder="QQ">
+                        <input type="email" name="email" class="email" placeholder="邮箱">
+                        <input type="text" name="college" class="college" placeholder="学院">
+                        <input type="text" name="major" class="major" placeholder="专业">
+                        <input type="text" name="class_id" class="class_id" placeholder="班级">
+
+                        <input type="text" name="resume" class="resume" placeholder="个人简历">
+                        <input type="text" name="expectation" class="expectation" placeholder="个人期望">
+                        <input type="text" name="repertory" class="repertory" placeholder="GitHub 仓库">
+
+                        <p onclick="fn()" type="button" style="width: 100px;text-align: center;position: relative;left: 10px">提交</p>
+                    </form>
                 </div>
             </div>
         </div>
@@ -278,6 +337,69 @@
 
     <!-- Theme JavaScript -->
     <script src="js/creative.min.js"></script>
+    <script>
+
+        function fn() {
+
+
+            var data = $('#form');
+
+            var username = data.find('.username').val();
+            var school_number = data.find('.school_number').val();
+            var sexm = data.find('.sexm').val();
+            var sexf = data.find('.sexf').val();
+            var tel = data.find('.tel').val();
+            var qq = data.find('.qq').val();
+            var email = data.find('.email').val();
+            var college = data.find('.college').val();
+            var major = data.find('.major').val();
+            var resume = data.find('.resume').val();
+            var expectation = data.find('.expectation').val();
+            var repertory = data.find('.repertory').val();
+
+
+//            需要判断内容是否填写完整！！！！
+
+            $.ajax({
+                url:'',
+                async: flase,
+                dataType: 'jsonp',
+                data:{
+                    'usernme': username,
+                    'school_number': school_number,
+                    'sexm': sexm,
+                    'sexf': sexf,
+                    'tel': tel,
+                    'qq': qq,
+                    'email': email,
+                    'college': college,
+                    'major': major,
+                    'resume':resume,
+                    'expectation': expectation,
+                    'repertory':repertory
+                    },
+                type:'get',
+                jsonp:"callback",                                      //！！！！
+                crossDomain: true,
+                jsonpCallback:"callback",
+                success: function (json_str) {
+                    if(json_str['status']==1){
+                        alert("恭喜你提交成功了");
+//                        register.style.display="none";
+//                        login.style.display="block";
+//                        aH[1].style.borderBottom="5px solid #cccc00";
+//                        aH[0].style.borderBottom="";
+                    }
+//                    else {
+//                        alert(json_str['message']);
+//                    }
+                }
+
+
+                })
+
+        }
+    </script>
 
 </body>
 
