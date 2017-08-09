@@ -66,6 +66,8 @@
             width: 1025px;
         }
     </style>
+    <script src="layer/layer.js"></script>
+    <link rel="stylesheet" href="layer/mobile/need/layer.css">
 
 </head>
 
@@ -301,8 +303,8 @@
                     <form action="" method="" id="form">
                         <input type="text" name="username" class="username" placeholder="姓名">
                         <input type="text" name="school_number" class="school_number" placeholder="学号">
-                        <input type="radio" name="sex" value="male" class="sexm"> 男
-                        <input type="radio" name="sex" value="female" class="sexf"> 女
+                        <input type="text" name="sex" placeholder="性别" class="sex">
+
                         <input type="tel" name="tel" class="tel" placeholder="联系电话">
                         <input type="text" name="qq" class="qq" placeholder="QQ">
                         <input type="email" name="email" class="email" placeholder="邮箱">
@@ -310,11 +312,12 @@
                         <input type="text" name="major" class="major" placeholder="专业">
                         <input type="text" name="class_id" class="class_id" placeholder="班级">
 
-                        <input type="text" name="resume" class="resume" placeholder="个人简历">
-                        <input type="text" name="expectation" class="expectation" placeholder="个人期望">
+                        <textarea type="text" name="resume" class="resume" placeholder="个人简历"style="margin: 10px; resize:none; width:500px; height:150px;" ></textarea>
+                        <textarea type="text" name="expectation" class="expectation" placeholder="个人期望" style="margin: 10px;resize:none; width:500px; height:150px;"></textarea>
                         <input type="text" name="repertory" class="repertory" placeholder="GitHub 仓库">
 
-                        <p onclick="fn()" type="button" style="width: 100px;text-align: center;position: relative;left: 10px">提交</p>
+                        <p onclick="fn()" type="button"  style="width: 100px;text-align: center;position: relative;left: 10px"> 提交</p>
+
                     </form>
                 </div>
             </div>
@@ -337,6 +340,12 @@
 
     <!-- Theme JavaScript -->
     <script src="js/creative.min.js"></script>
+
+
+
+
+
+
     <script>
 
         function fn() {
@@ -346,8 +355,7 @@
 
             var username = data.find('.username').val();
             var school_number = data.find('.school_number').val();
-            var sexm = data.find('.sexm').val();
-            var sexf = data.find('.sexf').val();
+            var sex = data.find('.sex').val();
             var tel = data.find('.tel').val();
             var qq = data.find('.qq').val();
             var email = data.find('.email').val();
@@ -356,6 +364,19 @@
             var resume = data.find('.resume').val();
             var expectation = data.find('.expectation').val();
             var repertory = data.find('.repertory').val();
+
+
+            if(username == ''){alert("同学你忘记填写姓名啦~");return false;}
+            if(school_number == ''){alert("同学你忘记填写学号啦~");return false;}
+            if(sex == ''){alert("同学你忘记填写性别啦~"); return false;}
+            if(tel == ''){alert("同学你忘记填写手机号啦~"); return false;}
+            if(qq == ''){alert("同学你忘记填写扣扣啦~"); return false;}
+            if(email == ''){alert("同学你忘记填写邮箱啦~"); return false;}
+            if(college == ''){alert("同学你忘记填写学院啦~"); return false;}
+            if(major == ''){alert("同学你忘记填写专业啦~"); return false;}
+            if(resume == ''){alert("同学你忘记填写个人简历~"); return false;}
+            if(expectation == ''){alert("同学你忘记填写个人期望啦~"); return false;}
+            if( repertory == ''){alert("同学你忘记填写仓库地址啦~"); return false;}
 
 
 //            需要判断内容是否填写完整！！！！
