@@ -311,10 +311,23 @@
                         <input type="text" name="college" class="college" placeholder="学院">
                         <input type="text" name="major" class="major" placeholder="专业">
                         <input type="text" name="class_id" class="class_id" placeholder="班级">
+                        <textarea type="text" name="resume" class="resume" placeholder="个人简历"style="margin: 10px; resize:none; width:950px; height:100px;" ></textarea>
 
-                        <textarea type="text" name="resume" class="resume" placeholder="个人简历"style="margin: 10px; resize:none; width:500px; height:150px;" ></textarea>
-                        <textarea type="text" name="expectation" class="expectation" placeholder="个人期望" style="margin: 10px;resize:none; width:500px; height:150px;"></textarea>
-                        <input type="text" name="repertory" class="repertory" placeholder="GitHub 仓库">
+                        <div>
+                            <input type="radio" name="JAVA" class="JAVA" style="width: 10px ;display: inline-block; ">JAVA
+                            <input type="radio" name="C" class="C" style="width: 10px ;display: inline-block;  "> C
+                            <input type="radio" name="C" class="C++" style="width: 10px ;">C++
+                            <input type="radio" name="PHP" class="PHP" style="width: 10px ; ">PHP
+                            <input type="radio" name="PS" class="PS" style="width: 10px ; ">PS
+                            <input type="radio" name="HTML5" class="HTML5" style="width: 10px ; ">HTML5
+                            <input type="radio" name="JS" class="JS" style="width: 10px ; ">JS
+                            <input type="radio" name="Python" class="Python" style="width: 10px ;">Python
+                            <input type="radio" name="MySQL" class="MySQL" style="width: 10px ; ">MySQL
+                        </div>
+
+
+                        <textarea type="text" name="expectation" class="expectation" placeholder="个人期望" style="margin: 10px;resize:none; width:950px; height:150px;"></textarea>
+                        <input type="text" name="repertory" class="repertory" placeholder="GitHub 仓库" style="width: 950px">
 
                         <p onclick="fn()" type="button"  style="width: 100px;text-align: center;position: relative;left: 10px"> 提交</p>
 
@@ -364,6 +377,16 @@
             var resume = data.find('.resume').val();
             var expectation = data.find('.expectation').val();
             var repertory = data.find('.repertory').val();
+            var JAVA = data.find('.JAVA').val();
+            var C = data.find('.C').val();
+            var Cplus = data.find('.C++').val();
+            var PHP = data.find('.PHP').val();
+            var PS = data.find('.PS').val();
+            var HTML5 = data.find('.HTML5').val();
+            var JS = data.find('.JS').val();
+            var MySQL = data.find('.MySQL').val();
+            
+
 
 
             if(username == ''){alert("同学你忘记填写姓名啦~");return false;}
