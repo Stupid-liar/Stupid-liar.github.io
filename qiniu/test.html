@@ -18,8 +18,8 @@
       $.ajax({
         type: "post",
         url: "https://portal.qiniu.com/api/rtn/rtc/app/id/e16nfe56c/rooms/token",
-        //dataType:"jsonp",  //数据格式设置为jsonp
-        //jsonp:"callback",  //Jquery生成验证参数的名称
+        dataType:"jsonp",  //数据格式设置为jsonp
+        jsonp:"callback",  //Jquery生成验证参数的名称
         data: {
           "appId": "e16nfe56c",
             "roomName": "roomname",

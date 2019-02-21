@@ -31,7 +31,7 @@
         // 初始化一个房间 Session 对象, 这里使用 Track 模式
         const myRoom = new QNRTC.TrackModeSession();
         // 这里替换成刚刚生成的 RoomToken
-        await myRoom.joinRoomWithToken("pHNNSR0R31i4gHfG7ZhznPjdpfyXxrr7Y6702uog:1A96GYtmkbYPkzlU3-XNi8eQ4zw=:eyJhcHBJZCI6ImUxNm5mZTU2YyIsInJvb21OYW1lIjoiY2RkYSIsInVzZXJJZCI6IjEzMiIsImV4cGlyZUF0IjoxNTUwODEzMTQ0LCJwZXJtaXNzaW9uIjoidXNlciJ9");
+        await myRoom.joinRoomWithToken("pHNNSR0R31i4gHfG7ZhznPjdpfyXxrr7Y6702uog:m9WrleGfbC_1PMJnTsFx_XiG_DM=:eyJhcHBJZCI6ImUxNm5mZTU2YyIsInJvb21OYW1lIjoiY2RkIiwidXNlcklkIjoiYWFhYWEiLCJleHBpcmVBdCI6MTU1MDgzMDA0NiwicGVybWlzc2lvbiI6InVzZXIifQ==");
         console.log("joinRoom success!");
 
         await publish(myRoom);
