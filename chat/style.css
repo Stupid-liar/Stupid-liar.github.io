@@ -1,0 +1,35 @@
+body, input {
+  font-size: 17px;
+}
+
+.message {
+  margin: 15px 0;
+}
+
+.input-area {
+  display: flex;
+}
+
+.input {
+  width: 100%;
+  line-height: 40px;
+  border: 2px solid #C3C3C3;
+  border-radius: 8px;
+  padding: 0 15px;
+}
+
+.input.name {
+  flex-basis: 200px;
+  flex-grow: 0;
+  margin-right: 5px;
+}
+
+.input.content {
+  flex-grow: 1;
+  margin-right: 5px;
+}
+
+.input.button {
+  flex-basis: 120px;
+  flex-grow: 0;
+}
