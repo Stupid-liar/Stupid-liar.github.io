@@ -1,0 +1,63 @@
+<!-- subscribe.html -->
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8" />
+    <title>Subscribe Page</title>
+    </head>
+    <body>
+    <p>远端音视频轨</p>
+    <div id="remotetracks"></div>
+    <button onclick="joinRoom()">加入房间</button>
+    <!-- 同样，这里引入我们的 SDK -->
+    <script src="./pili-rtc-web.js"></script>
+    <script>
+      // 确认引入成功
+      console.log("current version", QNRTC.version);
+      // 这里采用的是 async/await 的异步方案，您也可以根据需要或者习惯替换成 Promise 的写法
+      async function joinRoom() {
+        // 初始化一个房间 Session 对象, 这里使用 Track 模式
+        const myRoom = new QNRTC.TrackModeSession();
+        // 这里替换成刚刚生成的 RoomToken
+        await myRoom.joinRoomWithToken("pHNNSR0R31i4gHfG7ZhznPjdpfyXxrr7Y6702uog:1Z2D6mcgS2qaR890Xwe6jBNk3O4=:eyJhcHBJZCI6ImUxNm5mZTU2YyIsInJvb21OYW1lIjoiY2RkIiwidXNlcklkIjoiMTMyIiwiZXhwaXJlQXQiOjE1NTA4MTMxNDQsInBlcm1pc3Npb24iOiJ1c2VyIn0=");
+        console.log("joinRoom success!");
+
+        autoSubscribe(myRoom);
+      }
+
+      // 这里的参数 myRoom 是指刚刚加入房间时初始化的 Session 对象, 同上
+      // trackInfoList 是一个 trackInfo 的列表，订阅支持多个 track 同时订阅。
+      async function subscribe(myRoom, trackInfoList) {
+        // 通过传入 trackId 调用订阅方法发起订阅，成功会返回相应的 Track 对象，也就是远端的 Track 列表了
+        const remoteTracks = await myRoom.subscribe(trackInfoList.map(info => info.trackId));
+
+        // 选择页面上的一个元素作为父元素，播放远端的音视频轨
+        const remoteElement = document.getElementById("remotetracks");
+        // 遍历返回的远端 Track，调用 play 方法完成在页面上的播放
+        for (const remoteTrack of remoteTracks) {
+          remoteTrack.play(remoteElement);
+        }
+      }
+
+      function autoSubscribe(myRoom) {
+        const trackInfoList = myRoom.trackInfoList;
+        console.log("room current trackInfo list", trackInfoList)
+
+        // 调用我们刚刚编写的 subscribe 方法
+        // 注意这里我们没有使用 async/await，而是使用了 Promise，大家可以思考一下为什么
+        subscribe(myRoom, trackInfoList)
+          .then(() => console.log("subscribe success!"))
+          .catch(e => console.error("subscribe error", e));
+
+        // 添加事件监听，当房间中出现新的 Track 时就会触发，参数是 trackInfo 列表
+        myRoom.on("track-add", (trackInfoList) => {
+          console.log("get track-add event!", trackInfoList);
+          subscribe(myRoom, trackInfoList)
+            .then(() => console.log("subscribe success!"))
+            .catch(e => console.error("subscribe error", e));
+        });
+        // 就是这样，就像监听 DOM 事件一样通过 on 方法监听相应的事件并给出处理函数即可
+      }
+    </script>
+    </body>
+</html>
