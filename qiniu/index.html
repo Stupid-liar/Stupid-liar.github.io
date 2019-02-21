@@ -18,9 +18,10 @@
     <script>
       //生成roomtoken 初始化为空
       let roomToken = null;
+      let roomname = document.getElementById("roomname").value;
+      let username = document.getElementById("username").value;
       function check(){
-        let roomname = document.getElementById("roomname").value;
-        let username = document.getElementById("username").value;
+        
         if(roomname && username){
           let roomAccess = {
             "appId": "e16nfe56c"
