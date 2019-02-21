@@ -6,8 +6,6 @@
     <title>Publish Page</title>
     </head>
     <body>
-    <p>本地音视频轨</p>
-    <div id="localtracks" style="width: 640px;"></div>
     <p>远端音视频轨</p>
     <div id="remotetracks" style="width: 640px;"></div>
     <!-- 房间名：<input id="roomname" name="roomname" type="text">
@@ -28,35 +26,13 @@
         await myRoom.joinRoomWithToken("pHNNSR0R31i4gHfG7ZhznPjdpfyXxrr7Y6702uog:1A96GYtmkbYPkzlU3-XNi8eQ4zw=:eyJhcHBJZCI6ImUxNm5mZTU2YyIsInJvb21OYW1lIjoiY2RkYSIsInVzZXJJZCI6IjEzMiIsImV4cGlyZUF0IjoxNTUwODEzMTQ0LCJwZXJtaXNzaW9uIjoidXNlciJ9");
         console.log("joinRoom success!");
 
-        publish(myRoom);
+        //publish(myRoom);
         autoSubscribe(myRoom);
       }
 
       // 增加一个函数 publish，用于采集并发布自己的媒体流
       // 这里的参数 myRoom 是指刚刚加入房间时初始化的 Session 对象
-      async function publish(myRoom) {
-        // 我们打开了 3 个参数，即采集音频，采集视频，采集屏幕共享。
-        // 这个函数会返回一个列表，列表中每一项就是一个音视频轨对象
-        const localTracks = await QNRTC.deviceManager.getLocalTracks({
-          audio:  { enabled: true, tag: "audio" },
-          video:  { enabled: true, tag: "video" },
-          // screen: { enabled: true, tag: "screen" },
-        });
-        console.log("my local tracks", localTracks);
-        // 将刚刚的 Track 列表发布到房间中
-        await myRoom.publish(localTracks);
-        console.log("publish success!");
-
-        // 获取页面上的一个元素作为播放画面的父元素
-        const localElement = document.getElementById("localtracks");
-        // 遍历本地采集的 Track 对象
-        for (const localTrack of localTracks) {
-          // 如果这是麦克风采集的音频 Track，我们就不播放它。
-          if (localTrack.info.tag === "audio") continue;
-          // 调用 Track 对象的 play 方法在这个元素下播放视频轨
-          localTrack.play(localElement, true);
-        }
-      }
+      
 
 
       // 这里的参数 myRoom 是指刚刚加入房间时初始化的 Session 对象, 同上
