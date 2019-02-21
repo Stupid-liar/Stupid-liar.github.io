@@ -1,0 +1,24 @@
+warning: LF will be replaced by CRLF in webrtc1/js/script.js.
+The file will have its original line endings in your working directory
+[1mdiff --git a/webrtc1/js/script.js b/webrtc1/js/script.js[m
+[1mindex c70623e..865bec8 100644[m
+[1m--- a/webrtc1/js/script.js[m
+[1m+++ b/webrtc1/js/script.js[m
+[36m@@ -4,7 +4,7 @@[m [mif (!location.hash) {[m
+ }[m
+ const roomHash = location.hash.substring(1);[m
+ [m
+[31m-// TODO: Replace with your own channel ID[m
+[32m+[m[32m// 添加自己的频道[m
+ const drone = new ScaleDrone('6IQvsduPePtAfxOJ');[m
+ // Room name needs to be prefixed with 'observable-'[m
+ const roomName = 'observable-' + roomHash;[m
+[36m@@ -42,7 +42,7 @@[m [mdrone.on('open', error => {[m
+   });[m
+ });[m
+ [m
+[31m-// Send signaling data via Scaledrone[m
+[32m+[m[32m// 发送消息[m
+ function sendMessage(message) {[m
+   drone.publish({[m
+     room: roomName,[m

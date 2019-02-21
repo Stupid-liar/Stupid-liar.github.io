@@ -4,7 +4,7 @@ if (!location.hash) {
 }
 const roomHash = location.hash.substring(1);
 
-// TODO: Replace with your own channel ID
+// 添加自己的频道
 const drone = new ScaleDrone('6IQvsduPePtAfxOJ');
 // Room name needs to be prefixed with 'observable-'
 const roomName = 'observable-' + roomHash;
@@ -42,7 +42,7 @@ drone.on('open', error => {
   });
 });
 
-// Send signaling data via Scaledrone
+// 发送消息
 function sendMessage(message) {
   drone.publish({
     room: roomName,
