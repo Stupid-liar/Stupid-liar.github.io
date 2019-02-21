@@ -40,7 +40,7 @@
       async function subscribe(myRoom, trackInfoList) {
         // 通过传入 trackId 调用订阅方法发起订阅，成功会返回相应的 Track 对象，也就是远端的 Track 列表了
         const remoteTracks = await myRoom.subscribe(trackInfoList.map(info => info.trackId));
-
+        console.log(remoteTracks)
         // 选择页面上的一个元素作为父元素，播放远端的音视频轨
         const remoteElement = document.getElementById("remotetracks");
         // 遍历返回的远端 Track，调用 play 方法完成在页面上的播放
