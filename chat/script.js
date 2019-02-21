@@ -1,12 +1,16 @@
 var drone = new ScaleDrone('6IQvsduPePtAfxOJ');
 
 drone.on('open', function (error) {
-  if (error) return console.error(error);
+  if (error) {
+    return console.error(error);
+  }
 
   var room = drone.subscribe('general-chat');
 
   room.on('open', function (error) {
-    if (error) return console.error(error);
+    if (error) {
+      return console.error(error);
+    }
     console.log('Connected to room');
   });
 
