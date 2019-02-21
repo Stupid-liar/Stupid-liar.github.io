@@ -24,7 +24,7 @@
         await myRoom.joinRoomWithToken("pHNNSR0R31i4gHfG7ZhznPjdpfyXxrr7Y6702uog:IPlZI9ms8HPQHtTSFj14Cff2QqM=:eyJhcHBJZCI6ImUxNm5mZTU2YyIsInJvb21OYW1lIjoiY2RkIiwidXNlcklkIjoiMzIxIiwiZXhwaXJlQXQiOjE1NTA4MTMxNDQsInBlcm1pc3Npb24iOiJ1c2VyIn0=");
         console.log("joinRoom success!");
 
-        publish(myRoom);
+        await publish(myRoom);
         autoSubscribe(myRoom);
       }
 
