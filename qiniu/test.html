@@ -1,4 +1,3 @@
-<!-- publish.html -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,33 +13,50 @@
     用户名：<input id="username" name="username" type="text">
     <button onclick="check()">jiancha</button>
     <!-- 这里引入我们的 SDK -->
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script>
-      //生成roomtoken 初始化为空
-      let roomToken = null;
-      function check(){
-        let roomname = document.getElementById("roomname").value;
-        let username = document.getElementById("username").value;
-        console.log(roomname)
-        if(roomname && username){
-          let roomAccess = {
-            "appId": "e16nfe56c",
-            "roomName": roomname,
-            "userId": username,
+      $.ajax({
+        type: "post",
+        url: "https://portal.qiniu.com/api/rtn/rtc/app/id/e16nfe56c/rooms/token",
+        //dataType:"jsonp",  //数据格式设置为jsonp
+        //jsonp:"callback",  //Jquery生成验证参数的名称
+        data: {
+          "appId": "e16nfe56c",
+            "roomName": "roomname",
+            "userId": "username",
             "expireAt": 1550813144, //默认失效时间大约一天
             "permission": "user"
-          };
-          let roomAccessString = json_to_string(roomAccess); 
-          let encodedRoomAccess = urlsafe_base64_encode(roomAccessString)
-          // 2. 计算HMAC-SHA1签名，并对签名结果做URL安全的Base64编码
-          let sign = hmac_sha1(encodedRoomAccess, "0J1v1pzo5DDK8bAVbYGTxAlWqIkTg2MGA21jH7PA")
-          let encodedSign = urlsafe_base64_encode(sign)
-          // 3. 将AccessKey与以上两者拼接得到房间鉴权
-          roomToken = "pHNNSR0R31i4gHfG7ZhznPjdpfyXxrr7Y6702uog" + ":" + encodedSign + ":" + encodedRoomAccess;
-        }else{
-          alert("请输入用户名和房间名")
-          return false
+        },
+        success: function(data){
+          console.log(data)
         }
-      }
+      })
+      //生成roomtoken 初始化为空
+      // let roomToken = null;
+      // function check(){
+      //   let roomname = document.getElementById("roomname").value;
+      //   let username = document.getElementById("username").value;
+      //   console.log(roomname)
+      //   if(roomname && username){
+      //     let roomAccess = {
+      //       "appId": "e16nfe56c",
+      //       "roomName": roomname,
+      //       "userId": username,
+      //       "expireAt": 1550813144, //默认失效时间大约一天
+      //       "permission": "user"
+      //     };
+      //     let roomAccessString = json_to_string(roomAccess); 
+      //     let encodedRoomAccess = urlsafe_base64_encode(roomAccessString)
+      //     // 2. 计算HMAC-SHA1签名，并对签名结果做URL安全的Base64编码
+      //     let sign = hmac_sha1(encodedRoomAccess, "0J1v1pzo5DDK8bAVbYGTxAlWqIkTg2MGA21jH7PA")
+      //     let encodedSign = urlsafe_base64_encode(sign)
+      //     // 3. 将AccessKey与以上两者拼接得到房间鉴权
+      //     roomToken = "pHNNSR0R31i4gHfG7ZhznPjdpfyXxrr7Y6702uog" + ":" + encodedSign + ":" + encodedRoomAccess;
+      //   }else{
+      //     alert("请输入用户名和房间名")
+      //     return false
+      //   }
+      // }
       
     </script>
     </body>
