@@ -15,8 +15,8 @@
     </div>
     <!-- 媒体播放源 -->
     <div id="video">
-      <div id="localtracks" style="width: 640px;"></div>
-      <div id="remotetracks" style="width: 100px;"></div>
+      <div id="localtracks" ></div>
+      <div id="remotetracks" ></div>
     </div>
     <!-- 这里引入我们的 SDK -->
     <script src="./pili-rtc-web.js"></script>
@@ -26,7 +26,7 @@
       console.log("current version", QNRTC.version);
       // 这里采用的是 async/await 的异步方案，您也可以根据需要或者习惯替换成 Promise 的写法
       async function joinRoom() {
-
+        document.getElementById("#join").style.display = "none";
         // 初始化一个房间 Session 对象, 这里使用 Track 模式
         const myRoom = new QNRTC.TrackModeSession();
         // 这里替换成刚刚生成的 RoomToken

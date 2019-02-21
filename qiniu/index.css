@@ -27,6 +27,16 @@ body{
   outline: none;
   text-indent: 3px;
 }
+
+/* 媒体 */
+#localtracks{
+  width: 100%;
+  /* border: 1px solid red; */
+}
+#remotetracks{
+  width: 10%;
+  /* border: 1px solid red; */
+}
 /* #localtracks, #remotetracks{
   display: none;
 } */
