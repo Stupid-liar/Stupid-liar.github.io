@@ -19,13 +19,13 @@
       //生成roomtoken 初始化为空
       let roomToken = null;
       function check(){
-        let roomname = document.getElementById("roomname");
-        let username = document.getElementById("username");
-        if(roomname.value && username.value){
+        let roomname = document.getElementById("roomname").value;
+        let username = document.getElementById("username").value;
+        if(roomname && username){
           let roomAccess = {
-            "appId": "e16nfe56c"
-            "roomName": roomname.value,
-            "userId": username.value,
+            "appId": "e16nfe56c",
+            "roomName": roomname,
+            "userId": username,
             "expireAt": 1550813144, //默认失效时间大约一天
             "permission": "user"
           };
