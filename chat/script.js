@@ -1,4 +1,4 @@
-var drone = new ScaleDrone('your_channel_id');
+var drone = new ScaleDrone('6IQvsduPePtAfxOJ');
 
 drone.on('open', function (error) {
   if (error) return console.error(error);
