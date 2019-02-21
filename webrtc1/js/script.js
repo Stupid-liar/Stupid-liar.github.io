@@ -1,4 +1,4 @@
-// Generate random room name if needed
+// 随机房间号
 if (!location.hash) {
   location.hash = Math.floor(Math.random() * 0xFFFFFF).toString(16);
 }
@@ -6,11 +6,11 @@ const roomHash = location.hash.substring(1);
 
 // 添加自己的频道
 const drone = new ScaleDrone('6IQvsduPePtAfxOJ');
-// Room name needs to be prefixed with 'observable-'
+// 设置房间名
 const roomName = 'observable-' + roomHash;
 const configuration = {
   iceServers: [{
-    urls: 'stun:stun.l.google.com:19302'
+    urls: 'stun:stun.l.google.com:19302'   // 使用谷歌的stun服务
   }]
 };
 let room;
@@ -32,12 +32,13 @@ drone.on('open', error => {
       onError(error);
     }
   });
-  // We're connected to the room and received an array of 'members'
-  // connected to the room (including us). Signaling server is ready.
+  // 已经链接到房间后，就会收到一个 members 数组，代表房间里的成员
+  // 这时候信令服务已经就绪
   room.on('members', members => {
     console.log('MEMBERS', members);
-    // If we are the second user to connect to the room we will be creating the offer
-    const isOfferer = members.length === 2;
+   
+  // 如果你是第二个链接到房间的人，就会创建offer
+  const isOfferer = members.length === 2; //判断进入房间的人数
     startWebRTC(isOfferer);
   });
 });
@@ -53,56 +54,56 @@ function sendMessage(message) {
 function startWebRTC(isOfferer) {
   pc = new RTCPeerConnection(configuration);
 
-  // 'onicecandidate' notifies us whenever an ICE agent needs to deliver a
-  // message to the other peer through the signaling server
+  // 当本地ICE Agent需要通过信号服务器发送信息到其他端时
+  // 会触发icecandidate事件回调
   pc.onicecandidate = event => {
     if (event.candidate) {
       sendMessage({'candidate': event.candidate});
     }
   };
 
-  // If user is offerer let the 'negotiationneeded' event create the offer
+  // 第二个用户进入创建sdp
   if (isOfferer) {
     pc.onnegotiationneeded = () => {
       pc.createOffer().then(localDescCreated).catch(onError);
     }
   }
 
-  // When a remote stream arrives display it in the #remoteVideo element
+  // 远程媒体流
   pc.ontrack = event => {
     const stream = event.streams[0];
     if (!remoteVideo.srcObject || remoteVideo.srcObject.id !== stream.id) {
       remoteVideo.srcObject = stream;
     }
   };
-
+  //初始化本地媒体流
   navigator.mediaDevices.getUserMedia({
     audio: true,
     video: true,
   }).then(stream => {
-    // Display your local video in #localVideo element
+    // 获取本地媒体流
     localVideo.srcObject = stream;
-    // Add your stream to be sent to the conneting peer
+    // 将本地媒体流发送出去
     stream.getTracks().forEach(track => pc.addTrack(track, stream));
   }, onError);
 
-  // Listen to signaling data from Scaledrone
+  // 从Scaledrone监听信令服务
   room.on('data', (message, client) => {
-    // Message was sent by us
+    // 不处理自己的信息
     if (client.id === drone.clientId) {
       return;
     }
 
     if (message.sdp) {
-      // This is called after receiving an offer or answer from another peer
+      // 设置远程sdp
       pc.setRemoteDescription(new RTCSessionDescription(message.sdp), () => {
-        // When receiving an offer lets answer it
+        // 当接受到offer后接听
         if (pc.remoteDescription.type === 'offer') {
           pc.createAnswer().then(localDescCreated).catch(onError);
         }
       }, onError);
     } else if (message.candidate) {
-      // Add the new ICE candidate to our connections remote description
+      // 增加新的信令到本地连接中
       pc.addIceCandidate(
         new RTCIceCandidate(message.candidate), onSuccess, onError
       );
