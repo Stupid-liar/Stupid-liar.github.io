@@ -16,6 +16,7 @@
     <script src="./tokenTool.js"></script>
     <script src="./hmac-sha1.js"></script>
     <script src="./enc-base64.js"></script>
+    <script src="./crypto.js"></script>
     <script>
      
       let AK = "pHNNSR0R31i4gHfG7ZhznPjdpfyXxrr7Y6702uog";
@@ -25,7 +26,7 @@
         "appId": "e16nfe56c",
         "roomName": "aaa",
         "userId": "aaa",
-        "expireAt": 1550813144, //默认失效时间大约一天
+        "expireAt": 1550851200, //默认失效时间大约一天
         "permission": "user"
       };
       //setp2
@@ -35,22 +36,14 @@
       console.log(encodedRoomAccess)
       // 4. 计算HMAC-SHA1签名，并对签名结果做URL安全的Base64编码
       let sign = CryptoJS.HmacSHA1(encodedRoomAccess, SK)
-      //
-      let sign2 = JSON.stringify(sign); 
-      // console.log(sign)
-      // console.log(sign2)
-      // console.log(safe64(sign))
-      // let encodedSign = base64encode(utf16to8(sign.toString()));
-      // let encodedSign = sign.toString(CryptoJS.enc.Base64);
-      let encodedSign = base64encode(utf16to8(sign2));
-      // let a = safe64(encodedSign);
+      
+      let encodedSign = sign.toString(CryptoJS.enc.Base64);
       console.log(encodedSign)
       // console.log(a)
       // console.log(encodedSign2)
       // setp5. 将AccessKey与以上两者拼接得到房间鉴权
-      roomToken = AK + ":" + encodedSign + ":" + encodedRoomAccess;
+      roomToken = AK + ":" + safe64(encodedSign) + ":" + encodedRoomAccess;
       console.log(roomToken)
-      
     </script>
     </body>
 </html>

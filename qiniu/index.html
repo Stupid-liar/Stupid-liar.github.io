@@ -11,7 +11,7 @@
     <div id="content">
       <div class="username"><span>房间名：</span><input id="roomname" type="text"></div>
       <div class="roomname"><span>用户名：</span><input id="username" type="text"></div>
-      <button id="join" onclick="joinRoom()">加入房间</button>
+      <button id="join" onclick="check()">加入房间</button>
     </div>
     <!-- 媒体播放源 -->
     <div id="video">
@@ -21,40 +21,42 @@
     <!-- 这里引入我们的 SDK -->
     <script src="./pili-rtc-web.js"></script>
     <script src="./tokenTool.js"></script>
-    <script src="./hmac-sha1.js"></script>
-    <script src="./enc-base64.js"></script>
+    <script src="./crypto.js"></script>
     <script>
       //提前判断
       //生成roomtoken 初始化为空
-      let roomToken = null;
+      let roomtoken = null;
       function check(){
         let roomname = document.getElementById("roomname").value;
         let username = document.getElementById("username").value;
         if(roomname && username){
-
-        //初始化roomtoken  
-        let roomAccess = {
-          "appId": "e16nfe56c",
-          "roomName": roomname,
-          "userId": username,
-          "expireAt": 1550813144, //默认失效时间大约一天
-          "permission": "user"
-        };
-        //setp2
-        let roomAccessString = JSON.stringify(roomAccess); 
-        //setp3
-        let encodedRoomAccess = base64encode(utf16to8(roomAccessString));
-        console.log(encodedRoomAccess)
-        // 4. 计算HMAC-SHA1签名，并对签名结果做URL安全的Base64编码
-        let sign = CryptoJS.HmacSHA1(encodedRoomAccess, "0J1v1pzo5DDK8bAVbYGTxAlWqIkTg2MGA21jH7PA")
-        //
-        console.log(sign)
-        let encodedSign = base64encode(utf16to8(JSON.stringify(sign)));;
-        // let encodedSign = CryptoJS.enc.Base64.stringify(sign);
-        // setp5. 将AccessKey与以上两者拼接得到房间鉴权
-        roomToken = "pHNNSR0R31i4gHfG7ZhznPjdpfyXxrr7Y6702uog" + ":" + encodedSign + ":" + encodedRoomAccess;
-        console.log(roomToken);
-        return roomToken
+          let AK = "pHNNSR0R31i4gHfG7ZhznPjdpfyXxrr7Y6702uog";
+          let SK = "0J1v1pzo5DDK8bAVbYGTxAlWqIkTg2MGA21jH7PA";
+          //初始化roomtoken  
+          let roomAccess = {
+            "appId": "e16nfe56c",
+            "roomName": roomname,
+            "userId": username,
+            "expireAt": 1605064271, //设置到2020年
+            "permission": "user"
+          };
+          console.log(roomAccess)
+          //setp2
+          let roomAccessString = JSON.stringify(roomAccess); 
+          //setp3
+          let encodedRoomAccess = base64encode(utf16to8(roomAccessString));
+          //console.log(encodedRoomAccess)
+          // 4. 计算HMAC-SHA1签名，并对签名结果做URL安全的Base64编码
+          let sign = CryptoJS.HmacSHA1(encodedRoomAccess, SK)
+          //
+          //console.log(sign)
+          let encodedSign = sign.toString(CryptoJS.enc.Base64);
+          // let encodedSign = CryptoJS.enc.Base64.stringify(sign);
+          // setp5. 将AccessKey与以上两者拼接得到房间鉴权
+          roomToken = AK + ":" + safe64(encodedSign) + ":" + encodedRoomAccess;
+          console.log(roomToken);
+          
+          joinRoom(roomToken)
 
         }else{
           alert("请输入用户名和房间名")
@@ -64,16 +66,16 @@
       // 确认引入成功
       console.log("current version", QNRTC.version);
       // 这里采用的是 async/await 的异步方案，您也可以根据需要或者习惯替换成 Promise 的写法
-      async function joinRoom() {
-        let token = check();
-        // console.log(token.toString);
+      async function joinRoom(roomtoken) {
         // console.log(typeOf token);
+        // console.log(roomtoken)
         let content = document.getElementById("content");
         content.setAttribute('style', 'display: none');
         // 初始化一个房间 Session 对象, 这里使用 Track 模式
         const myRoom = new QNRTC.TrackModeSession();
         // 这里替换成刚刚生成的 RoomToken
-        await myRoom.joinRoomWithToken(token.toString);
+        console.log(roomtoken)
+        await myRoom.joinRoomWithToken(roomtoken);
         console.log("joinRoom success!");
 
         await publish(myRoom);
