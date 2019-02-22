@@ -116,11 +116,12 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   bottom: 0;
   width: 20%;
   height: 150px;
-  /* border: 10px solid red; */
+  border: 10px solid red;
   z-index: 999;
 }
 #remotetracks video{
   width: 100%;
+  border: 10px solid red;
 }
 
 
