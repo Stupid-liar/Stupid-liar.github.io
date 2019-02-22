@@ -18,11 +18,13 @@
     <script src="./enc-base64.js"></script>
     <script>
      
+      let AK = "pHNNSR0R31i4gHfG7ZhznPjdpfyXxrr7Y6702uog";
+      let SK = "0J1v1pzo5DDK8bAVbYGTxAlWqIkTg2MGA21jH7PA";
       // 生成roomtoken 初始化为空
       let roomAccess = {
         "appId": "e16nfe56c",
-        "roomName": "cdd",
-        "userId": "123",
+        "roomName": "aaa",
+        "userId": "aaa",
         "expireAt": 1550813144, //默认失效时间大约一天
         "permission": "user"
       };
@@ -32,19 +34,28 @@
       let encodedRoomAccess = base64encode(utf16to8(roomAccessString));
       console.log(encodedRoomAccess)
       // 4. 计算HMAC-SHA1签名，并对签名结果做URL安全的Base64编码
-      let sign = CryptoJS.HmacSHA1(encodedRoomAccess, "0J1v1pzo5DDK8bAVbYGTxAlWqIkTg2MGA21jH7PA")
+      let sign = CryptoJS.HmacSHA1(encodedRoomAccess, SK)
       //
-      console.log(sign)
-      let encodedSign = CryptoJS.enc.Base64.stringify(sign);
+      let sign2 = JSON.stringify(sign); 
+      // console.log(sign)
+      // console.log(sign2)
+      // console.log(safe64(sign))
+      // let encodedSign = base64encode(utf16to8(sign.toString()));
+      // let encodedSign = sign.toString(CryptoJS.enc.Base64);
+      let encodedSign = base64encode(utf16to8(sign2));
+      // let a = safe64(encodedSign);
+      console.log(encodedSign)
+      // console.log(a)
+      // console.log(encodedSign2)
       // setp5. 将AccessKey与以上两者拼接得到房间鉴权
-      roomToken = "pHNNSR0R31i4gHfG7ZhznPjdpfyXxrr7Y6702uog" + ":" + encodedSign + ":" + encodedRoomAccess;
+      roomToken = AK + ":" + encodedSign + ":" + encodedRoomAccess;
       console.log(roomToken)
       
     </script>
     </body>
 </html>
-
-
+pHNNSR0R31i4gHfG7ZhznPjdpfyXxrr7Y6702uog:b-f2_azDo2-dHmTTo_ctiafByRE=:eyJhcHBJZCI6ImUxNm5mZTU2YyIsInJvb21OYW1lIjoiY2RkIiwidXNlcklkIjoiMTIzIiwiZXhwaXJlQXQiOjE1NTA4OTA5NzMsInBlcm1pc3Npb24iOiJ1c2VyIn0=
+pHNNSR0R31i4gHfG7ZhznPjdpfyXxrr7Y6702uog:b-f2_azDo2-dHmTTo_ctiafByRE=:eyJhcHBJZCI6ImUxNm5mZTU2YyIsInJvb21OYW1lIjoiY2RkIiwidXNlcklkIjoiMTIzIiwiZXhwaXJlQXQiOjE1NTA4OTA5NzMsInBlcm1pc3Npb24iOiJ1c2VyIn0=
 //生成roomtoken 初始化为空
       let roomToken = null;
       function check(){
