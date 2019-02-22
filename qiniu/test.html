@@ -4,19 +4,44 @@
     <meta charset="utf-8" />
     <title>Publish Page</title>
     <style>
-      #localtracks{
-        width: 
+      #video{
+        position: relative;
+        width: 100%;
+        height: 500px;
       }
-      #remotetracks{}
+      #localtracks{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 500px;
+        border: 1px solid red;
+      }
+      #remotetracks{
+        display: flex;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 20%;
+        height: 150px;
+        border: 1px solid red;
+        z-index: 999;
+      }
+      #remotetracks video{
+        width: 100%;
+        border: 1px solid red;
+      }
     </style>
     </head>
     <body>
-    <p>本地音视频轨</p>
-    <div id="localtracks" style="width: 640px;"></div>
-    <p>远端音视频轨</p>
-    <div id="remotetracks" style="width: 640px;"></div>
-    房间名：<input id="roomname" name="roomname" type="text">
-    用户名：<input id="username" name="username" type="text">
+    <div id="video">
+      <div id="localtracks"></div>
+      <div id="remotetracks">
+        <video src=""></video>
+        <video src=""></video>
+        <video src=""></video>
+      </div>
+    </div>
     <button onclick="check()">jiancha</button>
     <!-- 这里引入我们的 SDK -->
     <script src="./tokenTool.js"></script>
@@ -53,36 +78,3 @@
     </script>
     </body>
 </html>
-pHNNSR0R31i4gHfG7ZhznPjdpfyXxrr7Y6702uog:b-f2_azDo2-dHmTTo_ctiafByRE=:eyJhcHBJZCI6ImUxNm5mZTU2YyIsInJvb21OYW1lIjoiY2RkIiwidXNlcklkIjoiMTIzIiwiZXhwaXJlQXQiOjE1NTA4OTA5NzMsInBlcm1pc3Npb24iOiJ1c2VyIn0=
-pHNNSR0R31i4gHfG7ZhznPjdpfyXxrr7Y6702uog:b-f2_azDo2-dHmTTo_ctiafByRE=:eyJhcHBJZCI6ImUxNm5mZTU2YyIsInJvb21OYW1lIjoiY2RkIiwidXNlcklkIjoiMTIzIiwiZXhwaXJlQXQiOjE1NTA4OTA5NzMsInBlcm1pc3Npb24iOiJ1c2VyIn0=
-//生成roomtoken 初始化为空
-      let roomToken = null;
-      function check(){
-        let roomname = document.getElementById("roomname").value;
-        let username = document.getElementById("username").value;
-        if(roomname && username){
-
-
-
-
-
-
-          let roomAccess = {
-            "appId": "e16nfe56c",
-            "roomName": roomname,
-            "userId": username,
-            "expireAt": 1550813144, //默认失效时间大约一天
-            "permission": "user"
-          };
-          let roomAccessString = json_to_string(roomAccess); 
-          let encodedRoomAccess = urlsafe_base64_encode(roomAccessString)
-          // 2. 计算HMAC-SHA1签名，并对签名结果做URL安全的Base64编码
-          let sign = hmac_sha1(encodedRoomAccess, "0J1v1pzo5DDK8bAVbYGTxAlWqIkTg2MGA21jH7PA")
-          let encodedSign = urlsafe_base64_encode(sign)
-          // 3. 将AccessKey与以上两者拼接得到房间鉴权
-          roomToken = "pHNNSR0R31i4gHfG7ZhznPjdpfyXxrr7Y6702uog" + ":" + encodedSign + ":" + encodedRoomAccess;
-        }else{
-          alert("请输入用户名和房间名")
-          return false
-        }
-      }
