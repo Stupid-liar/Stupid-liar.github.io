@@ -22,6 +22,7 @@ body{
 }
 
 .username>input, .roomname>input{
+  border-radius: 5%; 
   height: 24px;
   /* border: none; */
   outline: none;
