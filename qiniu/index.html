@@ -65,13 +65,13 @@
       console.log("current version", QNRTC.version);
       // 这里采用的是 async/await 的异步方案，您也可以根据需要或者习惯替换成 Promise 的写法
       async function joinRoom() {
-        check()
+        let token = check();
         let content = document.getElementById("content");
         content.setAttribute('style', 'display: none');
         // 初始化一个房间 Session 对象, 这里使用 Track 模式
         const myRoom = new QNRTC.TrackModeSession();
         // 这里替换成刚刚生成的 RoomToken
-        await myRoom.joinRoomWithToken("pHNNSR0R31i4gHfG7ZhznPjdpfyXxrr7Y6702uog:3tbMOofLF5D2FkR12k27O4VmkRA=:eyJhcHBJZCI6ImUxNm5mZTU2YyIsInJvb21OYW1lIjoiY2RkIiwidXNlcklkIjoiYWFhIiwiZXhwaXJlQXQiOjE1NTA4MzAwNDYsInBlcm1pc3Npb24iOiJ1c2VyIn0=");
+        await myRoom.joinRoomWithToken(token);
         console.log("joinRoom success!");
 
         await publish(myRoom);
