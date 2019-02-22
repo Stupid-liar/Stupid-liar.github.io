@@ -35,7 +35,7 @@
       let sign = CryptoJS.HmacSHA1(encodedRoomAccess, "0J1v1pzo5DDK8bAVbYGTxAlWqIkTg2MGA21jH7PA")
       //
       console.log(sign)
-      let encodedSign = CryptoJS.enc.Base64.stringify(sign);;
+      let encodedSign = CryptoJS.enc.Base64.stringify(sign);
       // setp5. 将AccessKey与以上两者拼接得到房间鉴权
       roomToken = "pHNNSR0R31i4gHfG7ZhznPjdpfyXxrr7Y6702uog" + ":" + encodedSign + ":" + encodedRoomAccess;
       console.log(roomToken)
