@@ -8,25 +8,75 @@ body{
 #content{
   position: absolute;
   left: 50%;
-  top: 20%;
-  width: 300px;
+  top: 100px;
+  width: 60%;
   height: 300px;
   transform: translate(-50%,50%);
   /* border: 1px solid red; */
 }
-#join, .username, .roomname{
-  margin-top: 30px;
-  margin-left: 10%;
-  width: 80%;
-  font-size: 14px;
+#content div{
+  border-radius: 100px!important;
+  border: none!important;
+  background: #34aadc;
+  width: 100%;
 }
 
-.username>input, .roomname>input{
-  height: 24px;
-  /* border: none; */
-  outline: none;
-  text-indent: 3px;
+
+#join, .username, .roomname{
+  margin-top: 35px;
+  height: 40px;
+  border-radius: 100px!important;
+  font-size: 18px;
+  letter-spacing: .85px;
+  outline: none!important;
+  border: none!important;
+  cursor: pointer;
+  border-radius: 100px!important;
 }
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: #ddd;
+  font-size: 16px;
+}
+
+input:-moz-placeholder, textarea:-moz-placeholder {
+  color: #ddd;
+  font-size: 16px;
+}
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+  color: #ddd;
+  font-size: 16px;
+}
+
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  color: #ddd;
+  font-size: 16px;
+}
+#roomname, #username{
+  margin-left: 10%;
+  /* margin-top: 1%; */
+  width: 80%;
+  height: 98%;
+  line-height: 40px;
+  text-indent: 5%;
+  background-color: transparent;
+  outline: none !important;
+  border: none !important;
+}
+#join{
+   /* background-color: #fff; */
+   width: 100%;
+   cursor: pointer;
+   background: #34aadc !important;
+   border-radius: 100px !important;
+   font-size: 18px;
+   letter-spacing: .85px;
+   outline: none !important;
+   border: none !important;
+   text-align: center;
+   color: white;
+}
+
 
 /* 媒体 */
 #localtracks{
