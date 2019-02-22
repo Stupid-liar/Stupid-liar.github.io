@@ -73,6 +73,7 @@
         // console.log(roomtoken)
         let content = document.getElementById("content");
         content.setAttribute('style', 'display: none');
+        document.getElementById("video").setAttribute("style","display: block");
         // 初始化一个房间 Session 对象, 这里使用 Track 模式
         const myRoom = new QNRTC.TrackModeSession();
         // 这里替换成刚刚生成的 RoomToken
