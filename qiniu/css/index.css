@@ -87,7 +87,13 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 }
 
 
-/* 媒体 */
+/* 媒体样式 */
+#video{
+
+}
+
+
+
 #localtracks{
   width: 100%;
   /* border: 1px solid red; */
