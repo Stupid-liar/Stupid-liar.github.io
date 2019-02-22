@@ -89,16 +89,24 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 
 /* 媒体样式 */
 #video{
-
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 
 
 #localtracks{
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 100%;
   /* border: 1px solid red; */
 }
 #remotetracks{
+  position: absolute;
+  bottom: 0;
+  left: 0;
   display: flex;
   width: 20%;
   /* border: 1px solid red; */
