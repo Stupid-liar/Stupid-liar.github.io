@@ -98,6 +98,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   position: relative;
   width: 100%;
   height: 500px;
+  border: 10px solid red;
 }
 #localtracks{
   position: absolute;
@@ -105,7 +106,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   top: 0;
   width: 100%;
   height: 500px;
-  border: 1px solid red;
+  border: 10px solid red;
 }
 #remotetracks{
   display: flex;
@@ -114,7 +115,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   bottom: 0;
   width: 20%;
   height: 150px;
-  border: 1px solid red;
+  border: 10px solid red;
   z-index: 999;
 }
 #remotetracks video{
