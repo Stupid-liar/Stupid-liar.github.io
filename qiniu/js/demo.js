@@ -95,9 +95,9 @@ async function publish(myRoom) {
   }
   
 
-  arrcontrol[0].onclick = function () {
-    await myRoom.unpublish(localTracks.map(track => track.info.trackId));
-  }
+  // arrcontrol[0].onclick = function () {
+  //   await myRoom.unpublish(localTracks.map(track => track.info.trackId));
+  // }
   // arrcontrol[0].onclick = function () {
   //   console.log()
   // }
