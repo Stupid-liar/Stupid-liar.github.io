@@ -163,7 +163,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   height: 50px;
   border-radius: 50%;
   cursor: pointer;
-  /* background-color: white; */
+  background-color: white;
   outline: none;
   -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
