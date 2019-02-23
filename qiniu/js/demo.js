@@ -55,6 +55,7 @@ async function joinRoom(roomtoken) {
   content.setAttribute('style', 'display: none');
   let height = window.innerHeight;
   document.getElementById("video").setAttribute("style","display: block; height: "+ height +"px");
+  document.body.setAttribute("style","background-color: black")
   // 初始化一个房间 Session 对象, 这里使用 Track 模式
   const myRoom = new QNRTC.TrackModeSession();
   // 这里替换成刚刚生成的 RoomToken
