@@ -106,7 +106,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 #localtracks{
   position: absolute;
   left: 0;
-  top: 30px;
+  top: 50px;
   width: 100%;
   height: 100%;
   /* border: 1px solid red; */
