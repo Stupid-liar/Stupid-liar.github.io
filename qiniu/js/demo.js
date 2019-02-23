@@ -1,5 +1,4 @@
-
-
+let arrcontrol = document.getElementById("control").getElementsByTagName("div");
 //提交房间和用户名的判断
 function checkInput(inputval){
   let reg =  /^[a-zA-Z0-9_-]{3,64}$/; 
@@ -62,7 +61,10 @@ async function joinRoom(roomtoken) {
   console.log(roomtoken)
   await myRoom.joinRoomWithToken(roomtoken);
   console.log("joinRoom success!");
-
+  //离开房间
+  arrcontrol[1].onclick = function () {
+    myRoom.leaveRoom();
+  }
   await publish(myRoom);
   autoSubscribe(myRoom);
 }
@@ -91,6 +93,14 @@ async function publish(myRoom) {
     // 调用 Track 对象的 play 方法在这个元素下播放视频轨
     localTrack.play(localElement, true);
   }
+  
+
+  arrcontrol[0].onclick = function () {
+    await myRoom.unpublish(localTracks.map(track => track.info.trackId));
+  }
+  // arrcontrol[0].onclick = function () {
+  //   console.log()
+  // }
 }
 
 
@@ -113,7 +123,6 @@ function autoSubscribe(myRoom) {
   console.log("room current trackInfo list", trackInfoList)
 
   // 调用我们刚刚编写的 subscribe 方法
-  // 注意这里我们没有使用 async/await，而是使用了 Promise，大家可以思考一下为什么
   subscribe(myRoom, trackInfoList)
     .then(() => console.log("subscribe success!"))
     .catch(e => console.error("subscribe error", e));
@@ -125,5 +134,4 @@ function autoSubscribe(myRoom) {
       .then(() => console.log("subscribe success!"))
       .catch(e => console.error("subscribe error", e));
   });
-  // 就是这样，就像监听 DOM 事件一样通过 on 方法监听相应的事件并给出处理函数即可
 }
