@@ -49,33 +49,50 @@
     <script src="./hmac-sha1.js"></script>
     <script src="./enc-base64.js"></script>
     <script src="./crypto.js"></script>
+    <script src="./js/demo.js"></script>
     <script>
-     
-      let AK = "pHNNSR0R31i4gHfG7ZhznPjdpfyXxrr7Y6702uog";
-      let SK = "0J1v1pzo5DDK8bAVbYGTxAlWqIkTg2MGA21jH7PA";
-      // 生成roomtoken 初始化为空
-      let roomAccess = {
-        "appId": "e16nfe56c",
-        "roomName": "aaa",
-        "userId": "aaa",
-        "expireAt": 1550851200, //默认失效时间大约一天
-        "permission": "user"
-      };
-      //setp2
-      let roomAccessString = JSON.stringify(roomAccess); 
-      //setp3
-      let encodedRoomAccess = base64encode(utf16to8(roomAccessString));
-      console.log(encodedRoomAccess)
-      // 4. 计算HMAC-SHA1签名，并对签名结果做URL安全的Base64编码
-      let sign = CryptoJS.HmacSHA1(encodedRoomAccess, SK)
+
+let roomname = "adff";
+  let username = "afasf";
+  let inputval = [roomname,username]
+  console.log(inputval)
+    //   let inputvalue = ["sdf ","dsafsf"]
+    //  console.log(checkinput(inputvalue))
       
-      let encodedSign = sign.toString(CryptoJS.enc.Base64);
-      console.log(encodedSign)
-      // console.log(a)
-      // console.log(encodedSign2)
-      // setp5. 将AccessKey与以上两者拼接得到房间鉴权
-      roomToken = AK + ":" + safe64(encodedSign) + ":" + encodedRoomAccess;
-      console.log(roomToken)
+     //获取token
+      // let AK = "pHNNSR0R31i4gHfG7ZhznPjdpfyXxrr7Y6702uog";
+      // let SK = "0J1v1pzo5DDK8bAVbYGTxAlWqIkTg2MGA21jH7PA";
+      // // 生成roomtoken 初始化为空
+      // let roomAccess = {
+      //   "appId": "e16nfe56c",
+      //   "roomName": "aaa",
+      //   "userId": "aaa",
+      //   "expireAt": 1550851200, //默认失效时间大约一天
+      //   "permission": "user"
+      // };
+      // //setp2
+      // let roomAccessString = JSON.stringify(roomAccess); 
+      // //setp3
+      // let encodedRoomAccess = base64encode(utf16to8(roomAccessString));
+      // console.log(encodedRoomAccess)
+      // // 4. 计算HMAC-SHA1签名，并对签名结果做URL安全的Base64编码
+      // let sign = CryptoJS.HmacSHA1(encodedRoomAccess, SK)
+      
+      // let encodedSign = sign.toString(CryptoJS.enc.Base64);
+      // console.log(encodedSign)
+      // // console.log(a)
+      // // console.log(encodedSign2)
+      // // setp5. 将AccessKey与以上两者拼接得到房间鉴权
+      // roomToken = AK + ":" + safe64(encodedSign) + ":" + encodedRoomAccess;
+      // console.log(roomToken)
+      let sysWidth = document.documentElement.clientWidth;
+      let sysHeight = document.documentElement.clientHeight;
+      let width = document.body.clientWidth;
+      let height = document.body.clientHeight;
+      console.log(sysWidth)
+      console.log(sysHeight)
+      console.log(width)
+      console.log(height)
     </script>
     </body>
 </html>

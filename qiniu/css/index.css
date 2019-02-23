@@ -63,12 +63,10 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   font-size: inherit;
 }
 #roomname, #username{
-  margin-left: 10%;
   /* margin-top: 1%; */
   width: 80%;
   height: 98%;
   line-height: 40px;
-  text-indent: 5%;
   background-color: transparent;
   outline: none !important;
   border: none !important;
