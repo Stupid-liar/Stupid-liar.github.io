@@ -45,7 +45,7 @@
             "expireAt": 1605064271, //设置到2020年
             "permission": "user"
           };
-          console.log(roomAccess)
+          // console.log(roomAccess)
           //setp2
           let roomAccessString = JSON.stringify(roomAccess); 
           //setp3
@@ -59,7 +59,7 @@
           // let encodedSign = CryptoJS.enc.Base64.stringify(sign);
           // setp5. 将AccessKey与以上两者拼接得到房间鉴权
           roomToken = AK + ":" + safe64(encodedSign) + ":" + encodedRoomAccess;
-          console.log(roomToken);
+          // console.log(roomToken);
           
           joinRoom(roomToken)
 

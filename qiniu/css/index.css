@@ -143,5 +143,5 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   border: none !important;
   outline: none !important;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
-  -webkit-tap-highlight-color:transparent;
+ -webkit-tap-highlight-color:transparent;
 }
