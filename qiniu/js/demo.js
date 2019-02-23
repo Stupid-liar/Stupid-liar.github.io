@@ -5,13 +5,14 @@ function checkInput(inputval){
   let reg =  /^[a-zA-Z0-9_-]{3,64}$/; 
   return reg.test(inputval)
 }
-function joinRoomButton(){
-  let roomname = document.getElementById("roomname").value;
+function joinRoomButton(defaultroomname){
+  let roomname = document.getElementById("roomname")?document.getElementById("roomname").value:defaultroomname;
   let username = document.getElementById("username").value;
+  console.log(roomname)
   if(checkInput(roomname) && checkInput(username)){
     creatRoomToken(roomname,username);
   }else{
-    alert("请按照要求填写用户名和房间名！");
+    alert("请按照要求填写用户名和房间名！(3~64数字字母下划线)");
     return false;
   }
 }
@@ -52,7 +53,8 @@ async function joinRoom(roomtoken) {
   // console.log(roomtoken)
   let content = document.getElementById("content");
   content.setAttribute('style', 'display: none');
-  document.getElementById("video").setAttribute("style","display: block");
+  let height = window.innerHeight;
+  document.getElementById("video").setAttribute("style","display: block; height: "+ height +"px");
   // 初始化一个房间 Session 对象, 这里使用 Track 模式
   const myRoom = new QNRTC.TrackModeSession();
   // 这里替换成刚刚生成的 RoomToken

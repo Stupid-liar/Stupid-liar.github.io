@@ -49,13 +49,17 @@
     <script src="./hmac-sha1.js"></script>
     <script src="./enc-base64.js"></script>
     <script src="./crypto.js"></script>
-    <script src="./js/demo.js"></script>
+    <!-- <script src="./js/demo.js"></script> -->
     <script>
+      let height = window.screen.height;
+      let aheight = window.screen.availHeight;
+      console.log(height)
+      console.log(aheight)
 
-let roomname = "adff";
-  let username = "afasf";
-  let inputval = [roomname,username]
-  console.log(inputval)
+// let roomname = "adff";
+//   let username = "afasf";
+//   let inputval = [roomname,username]
+//   console.log(inputval)
     //   let inputvalue = ["sdf ","dsafsf"]
     //  console.log(checkinput(inputvalue))
       
@@ -85,14 +89,14 @@ let roomname = "adff";
       // // setp5. 将AccessKey与以上两者拼接得到房间鉴权
       // roomToken = AK + ":" + safe64(encodedSign) + ":" + encodedRoomAccess;
       // console.log(roomToken)
-      let sysWidth = document.documentElement.clientWidth;
-      let sysHeight = document.documentElement.clientHeight;
-      let width = document.body.clientWidth;
-      let height = document.body.clientHeight;
-      console.log(sysWidth)
-      console.log(sysHeight)
-      console.log(width)
-      console.log(height)
+      // let sysWidth = document.documentElement.clientWidth;
+      // let sysHeight = document.documentElement.clientHeight;
+      // let width = document.body.clientWidth;
+      // let height = document.body.clientHeight;
+      // console.log(sysWidth)
+      // console.log(sysHeight)
+      // console.log(width)
+      // console.log(height)
     </script>
     </body>
 </html>
