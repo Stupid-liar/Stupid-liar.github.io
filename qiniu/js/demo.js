@@ -1,3 +1,4 @@
+//三个控件元素
 let arrcontrol = document.getElementById("control").getElementsByTagName("div");
 //提交房间和用户名的判断
 function checkInput(inputval){
@@ -48,8 +49,6 @@ function creatRoomToken(roomname, username){
 console.log("current version", QNRTC.version);
 // 这里采用的是 async/await 的异步方案，您也可以根据需要或者习惯替换成 Promise 的写法
 async function joinRoom(roomtoken) {
-  // console.log(typeOf token);
-  // console.log(roomtoken)
   let content = document.getElementById("content");
   content.setAttribute('style', 'display: none');
   // let height = window.innerHeight;
@@ -74,8 +73,7 @@ async function publish(myRoom) {
   // 这个函数会返回一个列表，列表中每一项就是一个音视频轨对象
   const localTracks = await QNRTC.deviceManager.getLocalTracks({
     audio:  { enabled: true, tag: "audio" },
-    video:  { enabled: true, tag: "video" },
-    // screen: { enabled: true, tag: "screen" },
+    video:  { enabled: true, tag: "video" }
   });
   console.log("my local tracks", localTracks);
   // 将刚刚的 Track 列表发布到房间中
