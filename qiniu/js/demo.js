@@ -61,11 +61,9 @@ async function joinRoom(roomtoken) {
   console.log(roomtoken)
   await myRoom.joinRoomWithToken(roomtoken);
   console.log("joinRoom success!");
-  //离开房间
-  arrcontrol[1].onclick = function () {
-    myRoom.leaveRoom();
-  }
+  
   await publish(myRoom);
+  document.getElementById("control").setAttribute("style","height: 60px");
   autoSubscribe(myRoom);
 }
 
@@ -88,19 +86,48 @@ async function publish(myRoom) {
   const localElement = document.getElementById("localtracks");
   // 遍历本地采集的 Track 对象
   for (const localTrack of localTracks) {
+    
     // 如果这是麦克风采集的音频 Track，我们就不播放它。
     if (localTrack.info.tag === "audio") continue;
+    
     // 调用 Track 对象的 play 方法在这个元素下播放视频轨
     localTrack.play(localElement, true);
   }
-  
-
-  // arrcontrol[0].onclick = function () {
-  //   await myRoom.unpublish(localTracks.map(track => track.info.trackId));
-  // }
-  // arrcontrol[0].onclick = function () {
-  //   console.log()
-  // }
+  //离开房间
+  arrcontrol[1].onclick = function () {
+    myRoom.leaveRoom();
+    for (const track of localTracks) {
+      track.release();
+    }
+    window.location.reload();
+  }
+  //默认同时发布
+  let videocontrol = false;
+  let audiocontrol = false;
+  //黑屏
+  arrcontrol[0].onclick = function () {
+    for (const localTrack of localTracks) {
+      if (localTrack.info.tag === "video"){
+        videocontrol = !videocontrol;
+        videocontrol?this.classList.add("choose"):this.classList.remove("choose");
+        myRoom.muteTracks([
+          { trackId: localTrack.info.trackId, muted: videocontrol }
+        ]);
+      };
+    }
+  }
+  //静音
+  arrcontrol[2].onclick = function () {
+    for (const localTrack of localTracks) {
+      if (localTrack.info.tag === "audio"){
+        audiocontrol = !audiocontrol;
+        audiocontrol?this.classList.add("choose"):this.classList.remove("choose");
+        myRoom.muteTracks([
+          { trackId: localTrack.info.trackId, muted: audiocontrol }
+        ]);
+      };
+    }
+  }
 }
 
 

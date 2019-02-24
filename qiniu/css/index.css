@@ -151,9 +151,13 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   left: 50%;
   transform: translateX(-50%);
   width: 60%;
-  height: 60px;
+  height: 0;
   display: flex;
   justify-content: space-around;
+  overflow: hidden;
+}
+#control div.choose{
+  background-color: black;
 }
 #control div{
   position: relative;
